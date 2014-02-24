@@ -1,0 +1,21 @@
+<div class="container-fluid">
+
+    <form class="enterForm">
+        <h1  ng-style="msgStyle"> {{okRegister}}</h1>
+        <p>
+            <div>Full name</div><input type="text" id="fullname">
+        </p>
+        <p>
+            <div>login</div><input type="text" id="username">
+        </p>
+        <p>
+        <div>Password</div><input type="password" id="password" class  ="pass">
+        </p>
+
+            <div> Retype Password </div> <input type="password" id="pass2" class="pass">
+        </p>
+        <p>
+            <input type="button" value="submit" ng-click="registering()"><input type="button" value="login" onclick="window.location.href = '#/login';">
+        </p>
+    </form>
+</div>

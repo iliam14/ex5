@@ -1,0 +1,28 @@
+<style>
+    .done-true{
+        text-decoration: line-through;
+    }
+</style>
+
+<div class="itemList">
+    <!--Body content-->
+    <ul class="items">
+        <div class="newItem">
+            <form ng-submit = submitItem()>
+            itemToAdd<input type="text" name="name" id="newItemName">
+            <input type="button" value="submit" ng-click="submitItem()">
+            </form>
+        </div>
+        <li ng-repeat="item in items | orderObjectBy:id:true" class="task">
+            <input type="checkbox" ng-click="doneItem(item.id);" ng-model="item.status">
+            <span class="done-{{item.status}}" ng-hide="editingItem(item.id)" ng-dblclick="startEdit(item.id);">{{item.text}}</span>
+            <input type="text" ng-show="editingItem(item.id)"  ng-model="item.text" ng-blur="endEdit(item.id)"
+                   ng-focus="editingItem(item.id)" ng-keyup="$event.keyCode == 13 ? endEdit(item.id) : null"  />
+            <input type="button" ng-click="deletItem(item.id);" value="delete me" class="deleteButton" />
+        </li>
+        <div class="newItem">
+            <input type="button" value="Delete Completed" ng-click="deletItem(-1)">
+        </div>
+    </ul>
+
+</div>

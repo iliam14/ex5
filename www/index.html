@@ -1,0 +1,40 @@
+<html ng-app="todoApp">
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.js"></script>
+    <script src='http://code.jquery.com/jquery-2.0.3.js'  ></script>
+    <script language="JavaScript">
+        function verify(){
+            var  pass = document.getElementsByClassName('pass');
+            if ( pass[0].value === pass[1].value)
+                return pass[0].value !== "";
+            return false;
+        }
+    </script>
+ <!--   <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--  @import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
+                 -webkit-background-size: cover;
+            -moz-background-size: cover;
+                  .container > header h1,
+        .container > header h2 {
+            color: #fff;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.7);
+        }-->
+    <style>
+
+        body {
+            background: #563c55 url(images/tree_texture.jpg) ;
+            background-size: cover;
+        }
+
+    </style>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div class="ttl">Welcome To My ToDoList</div>
+    <div ng-view></div>
+
+</body>
+</html>
