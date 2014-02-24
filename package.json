@@ -1,0 +1,25 @@
+{
+  "name": "todolist",
+  "version": "0.0.0",
+  "description": "ex5 internet technologies todo list",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~3.4.8",
+    "node-uuid": "~1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iliam14/ex5.git"
+  },
+  "author": "t_ilia liadaben",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iliam14/ex5/issues"
+  },
+  "homepage": "https://github.com/iliam14/ex5"
+}
