@@ -15,7 +15,6 @@ var parseQuery = function(queryStr){
     for (var query in queuryParts ){
         if( !arrayDef.test(queuryParts[query]))
         {
-            console.log("no match");
             return undefined;
         }
         var match = arrayDef.exec(queuryParts[query]);
@@ -60,11 +59,8 @@ parser = function(socketString) {
     }
     request.postMethod = partsFirstline[0];
     var resource = partsFirstline[1];
-    console.log(partsFirstline[1]);
     var tempFirstLine = partsFirstline[1];
-    console.log(firstline);
     //look for paramters
-    console.log("get param");
     var patt=new RegExp('([^&?]+)=([^&]+)&');
     while(patt.test(tempFirstLine))
     {
@@ -85,7 +81,6 @@ parser = function(socketString) {
         request.params[key] = value;
         tempFirstLine =  tempFirstLine.replace(match[0],'');
     }
-    console.log(request.params);
     var protocol = partsFirstline[2].split('/');
 
     request.protocol = protocol[0].toLowerCase();
@@ -327,7 +322,6 @@ var server  = net.createServer(function(socket) { //'connection' listener
         socket.end();
     })
     socket.on('error',function(err){
-        console.log('sock err' + err);
     })
 
     var req = socket;

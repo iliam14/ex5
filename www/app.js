@@ -211,7 +211,7 @@ todoApp.config(function($routeProvider){
             controller:'registerCtrl'
         }).
         when('/logged',{
-            templateUrl: 'todoAPP.html',
+            templateUrl: 'todoApp.html',
             controller:'itemCtrl'
         }).
         otherwise({
