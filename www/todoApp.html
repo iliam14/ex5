@@ -13,7 +13,7 @@
             <input type="button" value="submit" ng-click="submitItem()">
             </form>
         </div>
-        <li ng-repeat="item in items | orderObjectBy:id:true" class="task">
+        <li ng-repeat="item in items | orderObjectBy:id:true:filterType" class="task">
             <input type="checkbox" ng-click="doneItem(item.id);" ng-model="item.status">
             <span class="done-{{item.status}}" ng-hide="editingItem(item.id)" ng-dblclick="startEdit(item.id);">{{item.text}}</span>
             <input type="text" ng-show="editingItem(item.id)"  ng-model="item.text" ng-blur="endEdit(item.id)"
@@ -22,6 +22,12 @@
         </li>
         <div class="newItem">
             <input type="button" value="Delete Completed" ng-click="deletItem(-1)">
+        </div>
+        <div class="statistics">
+            Item left: {{(items | orderObjectBy:id:true:0).length}}
+            <input type="button" value="Show All" ng-click="showCompleted(2);" class="statButton">
+            <input type="button" value="Show Active" ng-click="showCompleted(0);" class="statButton">
+            <input type="button" value="Show Completed" ng-click="showCompleted(1);" class="statButton">
         </div>
     </ul>
 

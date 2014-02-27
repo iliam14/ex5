@@ -6,10 +6,15 @@ var todoApp = angular.module('todoApp', ['ngRoute']);
 var dbg = {};
 
 todoApp.filter('orderObjectBy', function() {
-    return function(items, field, reverse) {
+    return function(items, field, reverse, complete) {
         var filtered = [];
         angular.forEach(items, function(item) {
-            filtered.push(item);
+            if (complete == 2)
+                filtered.push(item);
+            else if(complete == 1 && item.status == true)
+                filtered.push(item);
+            else if(complete == 0 && item.status == false)
+                filtered.push(item);
         });
         filtered.sort(function (a, b) {
             return (a[field] > b[field]);
@@ -91,6 +96,7 @@ todoApp.controller('registerCtrl', function($scope,$location){
 todoApp.controller('itemCtrl', function($scope, $http,$location){
     $scope.items ={};
     $scope.editedItem = -1;
+    $scope.filterType = 2;
     $http.get('/item').success(function(data) {
         $scope.items = data;
     }).error(function(item){
@@ -193,7 +199,9 @@ todoApp.controller('itemCtrl', function($scope, $http,$location){
     $scope.editingItem = function(itemID){
         return $scope.editedItem == itemID;
     }
-
+    $scope.showCompleted =function(status){
+        $scope.filterType = status;
+    }
 
 
 
